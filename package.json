@@ -1,0 +1,9 @@
+{
+  "name": "DHTServer",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "mime": "^1.2.11",
+    "nedb": "^0.10.5"
+  }
+}

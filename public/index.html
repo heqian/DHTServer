@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<title>Interaction Lab Temperature/Humidity Monitor -- Supported by Steve</title>
+        <meta charset="utf-8">
+		<meta name="viewport" content="initial-scale = 1, user-scalable = no">
+		<script src="Chart.min.js"></script>
+        <style>
+            #temperature {
+                color: #ff0000;
+                font-weight: bold;
+                display: inline-block;
+            }
+
+            #humidity {
+                color: #0000ff;
+                font-weight: bold;
+                display: inline-block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <center>
+            <div>
+                <p id="temperature">Temperature (ºC)</p>
+                <p id="humidity">Humidity (%)</p>
+            </div>
+            <div id="status">
+                Loading...
+            </div>
+            <canvas id="canvas" height="720" width="1680">
+            </canvas>
+        </center>
+
+		<script>
+			var lineChartData = {
+				labels: [],
+				datasets: [
+					{
+						strokeColor : "#ff0000",
+						data : []
+					},
+					{
+						strokeColor : "#0000ff",
+						data : []
+					}
+					]
+			};
+
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.timeout = 60000;
+            xmlhttp.open("GET", "today", true);
+            xmlhttp.onerror = function() {
+                document.getElementById("status").innerHTML = "Error!";
+            };
+            xmlhttp.ontimeout = function() {
+                document.getElementById("status").innerHTML = "Timeout!";
+            };
+            xmlhttp.onload = function() {
+                if (xmlhttp.readyState === 4) {
+                    if (xmlhttp.status === 200) {
+                        var status = document.getElementById("status");
+                        status.parentNode.removeChild(status);
+
+                        var data = JSON.parse(xmlhttp.responseText);
+                        var logs = data.logs;
+                        for (var i = 0; i < logs.length; i++) {
+                            var date = new Date(logs[i].timestamp);
+                            if (date.getMinutes() === 0) {
+                                lineChartData.labels.push(date);
+                            } else {
+                                lineChartData.labels.push("");
+                            }
+                            lineChartData.datasets[0].data.push(logs[i].temperature);
+                            lineChartData.datasets[1].data.push(logs[i].humidity);
+                        }
+
+                        var chart = new Chart(document.getElementById("canvas").getContext("2d")).Line(
+                            lineChartData,
+                            {
+                                animation: false,
+                                datasetFill: false,
+                                pointDot : false
+                            }
+                        );
+                    }
+                }
+            };
+
+            xmlhttp.send();
+		</script>
+    </body>
+</html>
