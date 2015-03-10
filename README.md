@@ -21,5 +21,5 @@ A web server app implemented with Node.js for monitoring temperature and humidit
 6. Enjoy!
 
 # Example
-The temperature & humidity in our Interaction Lab: [pi.heqian.name](pi.heqian.name)
+The temperature & humidity in our Interaction Lab: [http://pi.heqian.name](http://pi.heqian.name)
 ![All in One](https://dl.dropboxusercontent.com/u/1660254/DHTServer.jpg)
