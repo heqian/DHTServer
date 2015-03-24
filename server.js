@@ -21,7 +21,10 @@ function readSensorData() {
         if (stdout) {
             if (regex.test(stdout)) {
                 var result = stdout.match(regex);
-                saveLog(parseFloat(result[1]), parseFloat(result[2]));
+                var temperature = parseFloat(result[1]);
+                var humidity = parseFloat(result[2]);
+                if (-40 <= temperature && temperature <= 80 && 0 <= humidity && humidity <= 100)
+                    saveLog(temperature, humidity);
             } else {
                 readSensorData();
             }
