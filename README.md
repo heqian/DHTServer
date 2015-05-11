@@ -14,7 +14,7 @@ A web server app implemented with Node.js for monitoring temperature and humidit
 
 # Software Tutorial
 1. Clone this repository;
-2. Compile the C program described in above "Hardware Tutorial";
+2. Compile the C program; (source code: [Raspberry Pi](https://github.com/adafruit/Adafruit_Python_DHT/tree/master/source/Raspberry_Pi) \& [Raspberry Pi 2](https://github.com/adafruit/Adafruit_Python_DHT/tree/master/source/Raspberry_Pi_2))
 3. Rename the binary program to "dht" and put it in the project folder;
 4. Under the project folder, run: npm install
 5. Run: nodejs server.js &
