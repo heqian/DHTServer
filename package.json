@@ -1,9 +1,25 @@
 {
-  "name": "DHTServer",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "mime": "^1.2.11",
-    "nedb": "^0.10.5"
-  }
+    "author": "Qian He",
+    "bugs": {
+        "url": "https://github.com/heqian/DHTServer/issues"
+    },
+    "dependencies": {
+        "mime": "^1.3.4",
+        "nedb": "^1.4.0",
+        "node-dht22": "0.0.2"
+    },
+    "description": "A web server app implemented with Node.js for monitoring temperature and humidity on Raspberry Pi with DHT22 sensor.",
+    "homepage": "https://github.com/heqian/DHTServer#readme",
+    "license": "ISC",
+    "main": "server.js",
+    "name": "dht-server",
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/heqian/DHTServer.git"
+    },
+    "scripts": {
+        "start": "node server.js"
+    },
+    "version": "0.0.2"
 }

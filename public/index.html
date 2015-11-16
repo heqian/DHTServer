@@ -38,14 +38,16 @@
 				labels: [],
 				datasets: [
 					{
-						strokeColor : "#ff0000",
-						data : []
+						strokeColor: "#ff0000",
+						pointColor: "#ff0000",
+						data: []
 					},
 					{
-						strokeColor : "#0000ff",
-						data : []
+						strokeColor: "#0000ff",
+						pointColor: "#0000ff",
+						data: []
 					}
-					]
+				]
 			};
 
             var xmlhttp = new XMLHttpRequest();
@@ -67,11 +69,7 @@
                         var logs = data.logs;
                         for (var i = 0; i < logs.length; i++) {
                             var date = new Date(logs[i].timestamp);
-                            if (date.getMinutes() === 0) {
-                                lineChartData.labels.push(date);
-                            } else {
-                                lineChartData.labels.push("");
-                            }
+                            lineChartData.labels.push(date);
                             lineChartData.datasets[0].data.push(logs[i].temperature);
                             lineChartData.datasets[1].data.push(logs[i].humidity);
                         }
