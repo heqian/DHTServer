@@ -31,7 +31,7 @@ npm install
 ```
 ## Get the Party Started!
 ```bash
-sudo node server.js &
+sudo -b node server.js
 ```
 
 # Example
