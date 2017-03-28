@@ -35,4 +35,4 @@ sudo -b node server.js
 
 ## Example
 The temperature & humidity in our Interaction Lab: [http://pi.heqian.name](http://pi.heqian.name)
-![All in One](https://dl.dropboxusercontent.com/u/1660254/DHTServer.jpg)
+![All in One](https://raw.githubusercontent.com/heqian/DHTServer/master/sample.jpg)
